@@ -1,0 +1,4 @@
+org\camunda\bpm\spring\boot\example\ProcessController.class
+org\camunda\bpm\spring\boot\example\KafkaPayload.class
+org\camunda\bpm\spring\boot\example\Application.class
+org\camunda\bpm\spring\boot\example\HandlerConfiguration.class

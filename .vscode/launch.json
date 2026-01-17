@@ -1,0 +1,22 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Consumer Application",
+      "request": "launch",
+      "mainClass": "org.camunda.kafka.consumer.Application",
+      "projectName": "kafka-credit-consumer"
+    },
+    {
+      "type": "java",
+      "name": "Camunda Webapp",
+      "request": "launch",
+      "mainClass": "org.camunda.bpm.spring.boot.example.Application",
+      "projectName": "loan-granting-spring-boot-webapp"
+    }
+  ]
+}

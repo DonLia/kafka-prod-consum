@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.camunda.bpm.example</groupId>
+  <artifactId>loan-granting-spring-boot-webapp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+
+  <properties>
+    <camunda.platform.version>7.23.0</camunda.platform.version>
+    <spring.boot.version>3.4.4</spring.boot.version>
+    <!-- maven -->
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+
+    <graaljs.version>21.3.12</graaljs.version>
+    <jaxb.version>4.0.5</jaxb.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-bom</artifactId>
+        <version>${camunda.platform.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.camunda.bpm.springboot</groupId>
+      <artifactId>camunda-bpm-spring-boot-starter-external-task-client</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.camunda.bpm.springboot</groupId>
+      <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.camunda.bpm.springboot</groupId>
+      <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-plugin-spin</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.camunda.spin</groupId>
+      <artifactId>camunda-spin-dataformat-all</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>12.6.1.jre11</version> <!-- adjust for your JDK -->
+    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>com.h2database</groupId>-->
+    <!--      <artifactId>h2</artifactId>-->
+    <!--    </dependency>-->
+
+    <dependency>
+      <groupId>org.graalvm.js</groupId>
+      <artifactId>js</artifactId>
+      <version>${graaljs.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.graalvm.js</groupId>
+      <artifactId>js-scriptengine</artifactId>
+      <version>${graaljs.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>${jaxb.version}</version>
+    </dependency>
+
+    <!-- Kafka -->
+    <dependency>
+      <groupId>org.springframework.kafka</groupId>
+      <artifactId>spring-kafka</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

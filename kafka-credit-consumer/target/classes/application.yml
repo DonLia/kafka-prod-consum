@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: kafka-credit-consumer
+  main:
+    web-application-type: servlet
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: credit-score-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        '[spring.json.type.mapping]': "kafkaPayload:org.camunda.kafka.consumer.KafkaPayload,org.camunda.bpm.spring.boot.example.KafkaPayload:org.camunda.kafka.consumer.KafkaPayload"
+        '[spring.json.trusted.packages]': "*"
+
+camunda:
+  rest:
+    base-url: http://localhost:8080/engine-rest
+
+logging:
+  level:
+    org.camunda: INFO
+    org.springframework.kafka: INFO
+    org.camunda.kafka.consumer: INFO
